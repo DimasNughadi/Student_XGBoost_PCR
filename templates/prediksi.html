@@ -1,0 +1,128 @@
+{% include 'header.html' %}
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div id="main-content">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h2>
+                                    {{title}}
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active">
+                                        {{title}}
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <section id="main-content">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- left column -->
+                                        <div class="col-md-6">
+                                            <!-- general form elements -->
+                                            <div class="card bg-primary text-white">
+                                                <h3 class="card-title text-white">Data Mahasiswa</h3>
+                                            </div>
+                                            <div class="card card-primary">
+                                                <!-- form start -->
+                                                <form action="/predict" method="POST">
+                                                    <div class="card-body">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName">Riwayat Cuti</label>
+                                                            <select id="cuti" name="cuti" value="Tidak Cuti" class="form-control custom-select">
+                                                                <option selected disabled hidden>Riwayat Cuti</option>
+                                                                <option value="Tidak Cuti">Tidak Cuti</option>
+                                                                <option value="Cuti">Cuti</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName">Status Kerja Praktik</label>
+                                                            <select id="kp" name="kp" value="Selesai" class="form-control custom-select">
+                                                                <option selected disabled hidden>Status Kerja Praktik</option>
+                                                                <option value="Selesai">Selesai</option>
+                                                                <option value="Mengulang">Mengulang</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName">IP Semester 1</label>
+                                                            <input type="number" step="0.01" class="form-control" name="ips1" value="" id="ips1">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName">IP Semester 2</label>
+                                                            <input type="number" step="0.01" class="form-control" name="ips2" value="" id="ips2">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName">IP Semester 3</label>
+                                                            <input type="number" step="0.01" class="form-control" name="ips3" value="" id="ips3">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputName">IP Semester 4</label>
+                                                            <input type="number" step="0.01" class="form-control" name="ips4" value="" id="ips4">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="prediksi" name="prediksi" value="Simpan" class="btn btn-primary">Prediksi</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card bg-primary text-white">
+                                                <h3 class="card-title text-white">Data Mahasiswa</h3>
+                                            </div>
+                                            <div class="card card-success">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName">IP Semester 5</label>
+                                                        <input type="number" step="0.01" class="form-control" name="ips5" value="" id="ips5">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName">IP Semester 6</label>
+                                                        <input type="number" step="0.01" class="form-control" name="ips6" value="" id="ips6">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName">Jumlah CO</label>
+                                                        <input type="number" class="form-control" name="co" value="" id="co">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName">Jumlah Kompen</label>
+                                                        <input type="number" class="form-control" name="kompen" value="" id="kompen">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName">Jumlah TAK</label>
+                                                        <input type="number" class="form-control" name="tak" value="" id="tak">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        <!-- /# card -->
+        {% include 'footer.html' %}

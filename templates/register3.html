@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kelulusan Mahasiswa | {{ title }}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/Logo_PSTI.png') }}">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/dist/css/adminlte.min.css') }}">
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/sweetalert2/dark.css') }}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/toastr/toastr.min.css') }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- <div class="row  justify-content-center">
+            <img src="{{ url_for('static', filename='assets/images/Logo_PSTI.png') }}" alt="AdminLTE Logo" class="brand-image " style="width: 300px;">
+        </div> -->
+        <div class="login-logo">
+            <img src="{{ url_for('static', filename='assets/images/LogoResmiPCR.png') }}" alt="AdminLTE Logo"
+                class="brand-image" style="width: 300px;">
+        </div>
+        <!-- /.login-logo -->
+
+        
+        <div class="card">
+            <div class="card-body login-card-body">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <p class="login-box-msg">Daftarkan Akun Anda</p>
+                <form action="{{ url_for('regist') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
+                    <!-- <div class="msg">{{ error }}</div> -->
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" value="" class="form-control" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" name="username" value="" class="form-control" placeholder="username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" value="" class="form-control" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-key"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" name="no_hp" value="" class="form-control" placeholder="nomor HP">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-phone"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" name="alamat" value="" class="form-control" placeholder="alamat">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-map"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <!-- <div>Pilih Gambar</div> -->
+                        <input type="file" name="foto" value="" class="form-control" placeholder="Pilih Gambar">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-image"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-8">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block" name="daftar">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+        <a href="{{ url_for('login') }}">Sudah Punya Akun?</a>
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='assets/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/toastr/toastr.min.js') }}"></script>
+
+
+
+</body>
+
+</html>

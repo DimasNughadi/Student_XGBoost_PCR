@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Kelulusan Mahasiswa | {{ title }}</title>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/Logo_PSTI.png') }}">
+
+    <!-- Styles -->
+    <link href="{{ url_for('static', filename='assets/css/lib/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/lib/themify-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/lib/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/lib/helper.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+    <div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 m-t-120">
+                    <div class="login-content">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        <form action="{{ url_for('login') }}" method="POST" autocomplete="off">
+                            <div class="login-form">
+                                <div class="login-logo">
+                                    <div class="col">
+                                        <img src="{{ url_for('static', filename='assets/images/Logo_PSTI.png') }}" class="brand-image m-b-30"
+                                            style="width: 60px; height: auto;">
+                                        <img src="{{ url_for('static', filename='assets/images/LogoResmiPCR.png') }}" class="brand-image m-b-30"
+                                            style="width: 450px; height: auto;">
+                                    </div>
+                                    <p class="login-box-msg">Login untuk memulai sesi anda</p>
+                                </div>
+                                <form>
+                                    <!-- <label>Email</label> -->
+                                    <div class="input-group mb-3 mt-4">
+                                        <input type="text" name="email" value="" class="form-control" placeholder="Masukan Email..." required>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="ti-email"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <label>Password</label> -->
+                                    <div class="input-group mb-3">
+                                        <input type="password" name="password" value="" class="form-control" placeholder="Masukan Password..." required>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="ti-lock"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block m-b-30 m-t-30">Login</button>
+                                    <div class="register-link m-t-15 text-center">
+                                        <p>Belum Punya Akun?<a href="{{ url_for('regist') }}"> Daftar</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
